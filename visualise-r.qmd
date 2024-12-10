@@ -9,13 +9,21 @@ execute:
 ---
 
 ```{r}
+#| label: gg-ggplot
+#| eval: true
+#| fig-align: center
+#| fig-cap: "Scatterplot created using ggplot2 R package"
+#| fig-alt: "Scatterplot created using ggplot2 R package"
+
+library(ggplot2)
+
 ggplot(mpg, aes(displ, hwy)) +
   geom_point(aes(colour = class)) +
   geom_smooth(se = FALSE) +
   labs(
     title = "Fuel efficiency generally decreases with engine size",
     subtitle = "Two seaters (sports cars) are an exception because of their light weight",
-    caption = "Data from fueleconomy.gov",
+    caption = "Data from www.fueleconomy.gov",
     colour = NULL
   ) +
   theme_minimal() +
