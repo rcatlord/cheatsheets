@@ -1,0 +1,165 @@
+# Git {.unnumbered}
+
+### Configure git
+set name for commits  
+`$  git config --global user.name "Your Name"`   
+
+set email address for commits   
+`$ git config --global user.email "you@example.com"`    
+
+check email is set correctly        
+`$ git config --global user.email`    
+     
+list all configuration values    
+`$ git config --list`       
+
+### Help?
+list all config options    
+`$ git config --help`       
+
+### Change directory and create folder
+set directory   
+`$ cd C:/Users/partrh/GitHub`    
+
+create directory    
+`$ mkdir cheatsheets`    
+
+change directory     
+`$ cd cheatsheets`   
+ 
+list contents of directory   
+`$ ls`    
+
+### Initialise existing repo
+track directory with git   
+`$ git init`    
+
+remove git from directory   
+`$ rm -rf .git`     
+
+create .gitignore file    
+`$ touch .gitignore`    
+
+### Staging
+add all untracked files to staging area  
+`$ git add -A`    
+
+add particular file to staging area     
+`$ git add cheatsheet.md`     
+
+remove all files from staging area   
+`$ git reset`     
+
+remove particular file from staging area      
+`$ git reset cheatsheet.md`     
+
+### Commit
+commit with message    
+`$ git commit -m "Meaningful commit message"`     
+
+compare versions      
+`$ git diff`    
+
+### Fork
+list all remotes    
+`$ git remote -v`    
+
+clone remote repo in current directory   
+`$ git clone https://github.com/rcatlord/cheatsheets.git .`     
+
+check remote was cloned successfully    
+`$ git remote --verbose`    
+
+### Pull and push
+retrieve history from remote branches          
+`§ git fetch`     
+
+pull all branches      
+`$ git fetch --all`
+
+pull latest changes from remote into local repo    
+`$ git pull`    
+
+push local commits to remote repo  
+`$ git push`    
+
+### Create branches
+show all branches (local and remote)         
+`$ git branch -a`     
+
+check current branch       
+`$ git branch`     
+
+check local and remote branches  
+`$ git branch -a`    
+
+create new branch called 'dev'    
+`$ git branch dev`     
+
+switch to new branch     
+`$ git checkout dev`    
+
+push new branch to GitHub       
+`$ git push -u origin dev`    
+
+### Merge branches
+switch to main branch     
+`$ git checkout main`     
+
+pull changes from remote main branch   
+`$ git pull origin main`    
+
+show branches that have been merged   
+`$ git branch --merged`    
+  
+merge dev branch     
+`$ git merge dev`    
+
+push to main branch   
+`$ git push origin main`    
+
+### Deleting branches
+show merged branches   
+`$ git branch --merged`   
+
+delete dev branch locally   
+`$ git branch -d dev`    
+
+check branches on remote     
+`$ git branch -a`    
+
+delete branch remotely   
+`$ git push origin --delete dev`    
+
+### Undo changes
+revert modified files    
+`$ git checkout -f`    
+
+remove untracked files    
+`$ git clean -fd`
+
+rollback to particular commit and push to remote
+```sh 
+git reset --hard <commit-hash>`
+git push --force origin <branch-name>
+```
+
+### Miscellaneous
+pull specific file from other branch       
+`git checkout dev file.txt`
+
+### Typical workflow
+```sh
+$ git branch dev # create branch
+$ git checkout dev # switch to dev branch
+$ git status # check current branch
+$ git add -A # add changed files to staging area
+$ git commit -m "Detailed message" # commit changed files
+$ git push -origin dev # push dev branch to remote
+$ git checkout main # switch to main branch
+$ git pull origin main # pull latest changes to main
+$ git merge dev # merge dev to main branch
+$ git push origin main # push main branch
+$ git branch -d dev # delete local dev branch
+$ git push origin --delete dev # delete remote dev branch
+```

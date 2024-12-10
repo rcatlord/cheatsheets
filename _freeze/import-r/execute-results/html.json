@@ -1,0 +1,17 @@
+{
+  "hash": "1d30d097c17bd6fdaf5855408988f818",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Import\"\nexecute:\n  echo: true\n  eval: false\n  message: false\n  warning: false\n  freeze: auto\n---\n\n\n\n\n\n## Read Excel spreadsheets\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(httr) ; library(readxl)\ntmp <- tempfile(fileext = \".xlsx\")\nGET(url = \"https://.xlsx\", write_disk(tmp))\ndf <- read_xlsx(tmp, sheet = \"Sheet 1\")\n```\n:::\n",
+    "supporting": [
+      "import-r_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,173 @@
+---
+title: "Exploratory Data Analysis"
+jupyter: python3
+execute:
+  echo: true
+  eval: false
+  message: false
+  warning: false
+  freeze: auto
+---
+
+```{python}
+import os
+import pandas as pd
+import numpy as np
+```
+
+# Get working directory
+```{python}
+os.getcwd()
+```
+
+# Change working directory
+```{python}
+os.chdir("C:/Users/partrh/Training/python/speedofanimals")
+```
+
+# Create a series
+```{python}
+pd.Series(["African Bush Elephant","African Wild Dog","Black Mamba","Brown Bear","Cheetah"])
+```
+
+# Create a dataframe
+```{python}
+pd.DataFrame({"name": ["African Bush Elephant","African Wild Dog","Black Mamba","Brown Bear","Cheetah"], "habitat": ["Land","Land","Land","Land","Land"],"speed": [40,72.5,32.2,35,120]})
+```
+
+# Import data
+```{python}
+df = pd.read_csv("data/speed_of_animals.csv")
+```
+
+# Explore data
+```{python}
+df.info() # overview
+df.shape # rows and columns
+df.dtypes # data types
+df['name'].dtypes # data type of individual column
+df.columns.tolist() # list columns
+```
+
+```{python}
+# Sort data
+df.sort_values(by = "speed_kph", ascending = False)
+df.sort_values(by=["speed_kph", "habitat"], ascending=[False, False]) # sort by group
+```
+
+```{python}
+# Select columns
+df[["name","speed_kph"]]
+```
+
+```{python}
+# Select columns by data type
+df.select_dtypes(include=["O"]) # or 'object'
+df.select_dtypes(include=["integer"])
+df.select_dtypes(include=["float"])
+```
+
+# Filtering
+```{python}
+df[df['name'] == "Wahoo"]
+df[df['speed_kph'] > 100]
+df[(df["habitat"] == "Land") & (df["speed_kph"] > 100)]
+
+animals = ["Cheetah", "Ostrich", "Common Octopus"]
+df[df["name"].isin(animals)] # multiple values
+
+df[df["mass_kg"].between(0, 1)] # between
+
+df[~(df["habitat"] == "Land")] # not equal to
+
+df[df["name"].str.contains("Do")] # contains string (case sensitive)
+```
+
+# Create new columns
+```{python}
+df["speed_mph"] = df["speed_kph"] * 0.6213
+df["fastest"] = df["speed_mph"] > 60
+```
+
+# Mapping new values
+```{python}
+df["aka"] = df["name"].map({"Cheetah":"Big cat",
+                            "Black Mamba":"Poisonous snake", 
+                            "Killer Whale": "Orca"})
+```
+
+# Deleting columns
+```{python}
+del df["aka"]
+df.drop(columns = ['fastest', 'aka'], axis = 1, inplace = True)
+```
+
+# Merging data
+```{python}
+df_merge = pd.merge(left = joining_data1,
+                    right = joining_data2, 
+                    how = "left",
+                    on = "name",
+                    indicator = True)
+```
+
+# Unique values
+```{python}
+df["habitat"].unique()
+```
+
+# Recode values
+```{python}
+df.loc[df["habitat"] == "Water", "habitat"]  = "Marine"
+df[df["habitat"] == "Marine"].head()
+```
+
+# Change strings to lowercase
+```{python}
+df["habitat"] = df["habitat"].str.lower()
+```
+
+# Rename columns
+```{python}
+df.rename(columns={"name": "animal_name"}, inplace = True)
+```
+
+# Fix missing values
+```{python}
+df.dtypes
+df[df['speed_kph'] == "."]
+df.loc[df["speed_kph"] == ".", "speed_kph"] = None # set "." to None
+df["speed_kph"] = pd.to_numeric(df["speed_kph"]) # convert to number
+df["speed_kph"].dtypes # check results
+```
+
+```{python}
+# Summary statistics
+df.describe()
+df['length_cm'].min()
+df['length_cm'].max()
+df['length_cm'].quantile(q=0.25)
+df['length_cm'].quantile(q=[0, 0.25, 0.5, 0.75, 1])
+df['length_cm'].mean()
+df['length_cm'].mode()
+df['length_cm'].median()
+df['length_cm'].std()
+df['length_cm'].var()
+df['length_cm'].count()
+df['length_cm'].isna().sum() # count NA values
+df['habitat'].value_counts() # count by group
+df['habitat'].unique() # unique values
+df['habitat'].nunique() # number of unique values
+df['length_cm_bins'] = pd.cut(df["length_cm"], bins = 10) # create size bands
+df['length_cm_bins'].unique()
+
+df["length_cm_bins_labels"] = pd.cut(df["length_cm"], # custom bins and labels
+                                     bins = np.arange(start = 0, stop = (df["length_cm"].max() + 1), step = 1000), 
+                                     labels = ["Short","Average","Long"])
+df["length_cm_bins_labels"].unique()
+df.groupby(by = "habitat")["length_cm"].count() # count by group
+df.groupby(by = "habitat")["length_cm"].mean() # mean by group
+df.groupby(by = "habitat").agg({"length_cm": "mean", # summary statisics by group
+                                "mass_kg": "mean", 
+                                "speed_kph": "mean"})
+```

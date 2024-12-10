@@ -1,0 +1,17 @@
+{
+  "hash": "b850b611b8da779d9011ab954f87e667",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Transform\"\nexecute:\n  echo: true\n  eval: false\n  message: false\n  warning: false\n  freeze: auto\n---\n\n\n\n\n## Dates\n\n### Format date\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nas.Date(paste0(\"15_\", \"Jan_1998\"), format = \"%d_%b_%Y\")\n```\n:::\n\n\n\n\n## Strings\n\n### Extract string between strings\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(stringr)\nx <- \"here and now\"\nstr_extract(x, \"(?<=here).*(?=now)\")\n```\n:::\n\n\n\n\n## Missing values\n\n### Count number of missing values in each column\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\ndf |> map_dbl(~sum(is.na(.))) colSums(is.na(x = df)))\n```\n:::\n\n\n\n\n### Count unique values in every column\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\ndf |> map_int(n_distinct)\n```\n:::\n\n\n\n\n### Show unique values in categorical variables\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nmap(select_if(df, is.character), unique)\n```\n:::\n\n\n\n\n### Convert selected string in single column to NA\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\ndf |> mutate(col1 = na_if(col1, \"Unknown\"))\ndf |> mutate_at(vars(col1, col2), na_if, \"Unknown\")\n```\n:::\n\n\n\n\n### Convert multiple strings across all columns to NA\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\ndf |> mutate(across(where(is.character), ~replace(., . %in% c(\"Unknown\",\"unknown\"), NA)))\n```\n:::\n\n\n\n\n### Convert string to NA across all columns\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nmutate(across(everything(), na_if, \"..\"))\n```\n:::\n\n\n\n\n## Other\n### Mutate and move new column\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\npenguins |> mutate(id = row_number(), .before = contains(\"_\"))\n```\n:::\n\n\n\n\n### Standardise values\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\ndf |> mutate(col1 = scale(col1))\n```\n:::\n\n\n\n\n### Round percentages\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nscales::label_percent(accuracy = 1L)\n```\n:::",
+    "supporting": [
+      "transform-r_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,280 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Cheatsheets",
+    "section": "",
+    "text": "Welcome",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "2  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "crumbs": [
+      "References"
+    ]
+  },
+  {
+    "objectID": "import-r.html",
+    "href": "import-r.html",
+    "title": "1  Import",
+    "section": "",
+    "text": "1.1 Read Excel spreadsheets\nlibrary(httr) ; library(readxl)\ntmp &lt;- tempfile(fileext = \".xlsx\")\nGET(url = \"https://.xlsx\", write_disk(tmp))\ndf &lt;- read_xlsx(tmp, sheet = \"Sheet 1\")",
+    "crumbs": [
+      "R",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Import</span>"
+    ]
+  },
+  {
+    "objectID": "transform-r.html",
+    "href": "transform-r.html",
+    "title": "3  Transform",
+    "section": "",
+    "text": "3.1 Dates",
+    "crumbs": [
+      "R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Transform</span>"
+    ]
+  },
+  {
+    "objectID": "transform-r.html#dates",
+    "href": "transform-r.html#dates",
+    "title": "3  Transform",
+    "section": "",
+    "text": "3.1.1 Format date\n\nas.Date(paste0(\"15_\", \"Jan_1998\"), format = \"%d_%b_%Y\")",
+    "crumbs": [
+      "R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Transform</span>"
+    ]
+  },
+  {
+    "objectID": "transform-r.html#missing-values",
+    "href": "transform-r.html#missing-values",
+    "title": "3  Transform",
+    "section": "3.3 Missing values",
+    "text": "3.3 Missing values\n\n3.3.1 Count number of missing values in each column\n\ndf |&gt; map_dbl(~sum(is.na(.))) colSums(is.na(x = df)))\n\n\n\n3.3.2 Count unique values in every column\n\ndf |&gt; map_int(n_distinct)\n\n\n\n3.3.3 Show unique values in categorical variables\n\nmap(select_if(df, is.character), unique)\n\n\n\n3.3.4 Convert selected string in single column to NA\n\ndf |&gt; mutate(col1 = na_if(col1, \"Unknown\"))\ndf |&gt; mutate_at(vars(col1, col2), na_if, \"Unknown\")\n\n\n\n3.3.5 Convert multiple strings across all columns to NA\n\ndf |&gt; mutate(across(where(is.character), ~replace(., . %in% c(\"Unknown\",\"unknown\"), NA)))\n\n\n\n3.3.6 Convert string to NA across all columns\n\nmutate(across(everything(), na_if, \"..\"))",
+    "crumbs": [
+      "R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Transform</span>"
+    ]
+  },
+  {
+    "objectID": "transform-r.html#other",
+    "href": "transform-r.html#other",
+    "title": "3  Transform",
+    "section": "3.4 Other",
+    "text": "3.4 Other\n\n3.4.1 Mutate and move new column\n\npenguins |&gt; mutate(id = row_number(), .before = contains(\"_\"))\n\n\n\n3.4.2 Standardise values\n\ndf |&gt; mutate(col1 = scale(col1))\n\n\n\n3.4.3 Round percentages\n\nscales::label_percent(accuracy = 1L)",
+    "crumbs": [
+      "R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Transform</span>"
+    ]
+  },
+  {
+    "objectID": "tidy-r.html",
+    "href": "tidy-r.html",
+    "title": "2  Tidy",
+    "section": "",
+    "text": "2.1 Pivot data",
+    "crumbs": [
+      "R",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tidy</span>"
+    ]
+  },
+  {
+    "objectID": "tidy-r.html#pivot-data",
+    "href": "tidy-r.html#pivot-data",
+    "title": "2  Tidy",
+    "section": "",
+    "text": "2.1.1 Wide format\n\npivot_wider(names_from = year, values_from = percent)\n\n\n\n2.1.2 Long format\n\npivot_longer(-name, names_to = \"year\", values_to = \"n\")",
+    "crumbs": [
+      "R",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tidy</span>"
+    ]
+  },
+  {
+    "objectID": "transform-r.html#strings",
+    "href": "transform-r.html#strings",
+    "title": "3  Transform",
+    "section": "3.2 Strings",
+    "text": "3.2 Strings\n\n3.2.1 Extract string between strings\n\nlibrary(stringr)\nx &lt;- \"here and now\"\nstr_extract(x, \"(?&lt;=here).*(?=now)\")",
+    "crumbs": [
+      "R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Transform</span>"
+    ]
+  },
+  {
+    "objectID": "visualise-r.html",
+    "href": "visualise-r.html",
+    "title": "5  Visualise",
+    "section": "",
+    "text": "ggplot(mpg, aes(displ, hwy)) +\n  geom_point(aes(colour = class)) +\n  geom_smooth(se = FALSE) +\n  labs(\n    title = \"Fuel efficiency generally decreases with engine size\",\n    subtitle = \"Two seaters (sports cars) are an exception because of their light weight\",\n    caption = \"Data from fueleconomy.gov\",\n    colour = NULL\n  ) +\n  theme_minimal() +\n  theme(\n    plot.margin = unit(rep(0.5, 4), \"cm\"),\n    panel.grid.major.x = element_blank(),\n    panel.grid.minor = element_blank(),\n    axis.line.x = element_line(),\n    plot.title = element_text(size = 18, face = \"bold\"),\n    plot.subtitle = element_text(size = 14, margin = margin(b = 20)),\n    plot.caption = element_text(hjust = 0, margin = margin(t = 20)),\n    legend.position = \"top\",\n    legend.justification = \"left\",\n    legend.key.size = unit(0.3, \"cm\")\n    ) +\n  guides(colour = guide_legend(nrow = 1))",
+    "crumbs": [
+      "R",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Visualise</span>"
+    ]
+  },
+  {
+    "objectID": "markdown.html",
+    "href": "markdown.html",
+    "title": "Markdown",
+    "section": "",
+    "text": "GitHub Flavored Markdown",
+    "crumbs": [
+      "Markdown"
+    ]
+  },
+  {
+    "objectID": "markdown.html#github-flavored-markdown-cheatsheet",
+    "href": "markdown.html#github-flavored-markdown-cheatsheet",
+    "title": "Markdown",
+    "section": "",
+    "text": "Style\nSyntax\nExample\n\n\n\n\nStrikethrough\n~~ ~~\nstrikethrough\n\n\nHighlight\n== ==\n==highlight==\n\n\nBlockquotes\n&gt;&gt;\n&gt;&gt; A quoted paragraph inside a quotation\n\n\nBreak\n\n\n\n\nImages\n\n\n\n\nSuperscript\n \n100m2\n\n\nSubscript\n \n1 billion tonnes CO2e\n\n\nTask list\n- [x]\n- [x] Oat milk\n\n\nEmoji\n:EMOJICODE:\n:+1:\n\n\nFootnote\n[^1]\nsee reference below[^1]\n\n\nComments\n\n\n\n\nIgnore markdown\n**\n*italics*",
+    "crumbs": [
+      "Markdown"
+    ]
+  },
+  {
+    "objectID": "git.html",
+    "href": "git.html",
+    "title": "Git",
+    "section": "",
+    "text": "Configure git\nset name for commits\n$  git config --global user.name \"Your Name\"\nset email address for commits\n$ git config --global user.email \"you@example.com\"\ncheck email is set correctly\n$ git config --global user.email\nlist all configuration values\n$ git config --list\n\n\nHelp?\nlist all config options\n$ git config --help\n\n\nChange directory and create folder\nset directory\n$ cd C:/Users/partrh/GitHub\ncreate directory\n$ mkdir cheatsheets\nchange directory\n$ cd cheatsheets\nlist contents of directory\n$ ls\n\n\nInitialise existing repo\ntrack directory with git\n$ git init\nremove git from directory\n$ rm -rf .git\ncreate .gitignore file\n$ touch .gitignore\n\n\nStaging\nadd all untracked files to staging area\n$ git add -A\nadd particular file to staging area\n$ git add cheatsheet.md\nremove all files from staging area\n$ git reset\nremove particular file from staging area\n$ git reset cheatsheet.md\n\n\nCommit\ncommit with message\n$ git commit -m \"Meaningful commit message\"\ncompare versions\n$ git diff\n\n\nFork\nlist all remotes\n$ git remote -v\nclone remote repo in current directory\n$ git clone https://github.com/rcatlord/cheatsheets.git .\ncheck remote was cloned successfully\n$ git remote --verbose\n\n\nPull and push\nretrieve history from remote branches\n§ git fetch\npull all branches\n$ git fetch --all\npull latest changes from remote into local repo\n$ git pull\npush local commits to remote repo\n$ git push\n\n\nCreate branches\nshow all branches (local and remote)\n$ git branch -a\ncheck current branch\n$ git branch\ncheck local and remote branches\n$ git branch -a\ncreate new branch called ‘dev’\n$ git branch dev\nswitch to new branch\n$ git checkout dev\npush new branch to GitHub\n$ git push -u origin dev\n\n\nMerge branches\nswitch to main branch\n$ git checkout main\npull changes from remote main branch\n$ git pull origin main\nshow branches that have been merged\n$ git branch --merged\nmerge dev branch\n$ git merge dev\npush to main branch\n$ git push origin main\n\n\nDeleting branches\nshow merged branches\n$ git branch --merged\ndelete dev branch locally\n$ git branch -d dev\ncheck branches on remote\n$ git branch -a\ndelete branch remotely\n$ git push origin --delete dev\n\n\nUndo changes\nrevert modified files\n$ git checkout -f\nremove untracked files\n$ git clean -fd\nrollback to particular commit and push to remote\ngit reset --hard &lt;commit-hash&gt;`\ngit push --force origin &lt;branch-name&gt;\n\n\nMiscellaneous\npull specific file from other branch\ngit checkout dev file.txt\n\n\nTypical workflow\n$ git branch dev # create branch\n$ git checkout dev # switch to dev branch\n$ git status # check current branch\n$ git add -A # add changed files to staging area\n$ git commit -m \"Detailed message\" # commit changed files\n$ git push -origin dev # push dev branch to remote\n$ git checkout main # switch to main branch\n$ git pull origin main # pull latest changes to main\n$ git merge dev # merge dev to main branch\n$ git push origin main # push main branch\n$ git branch -d dev # delete local dev branch\n$ git push origin --delete dev # delete remote dev branch",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "markdown.html#github-flavored-markdown",
+    "href": "markdown.html#github-flavored-markdown",
+    "title": "Markdown",
+    "section": "",
+    "text": "Style\nSyntax\nExample\n\n\n\n\nStrikethrough\n~~ ~~\nstrikethrough\n\n\nHighlight\n== ==\n==highlight==\n\n\nBlockquotes\n&gt;&gt;\n&gt;&gt; A quoted paragraph inside a quotation\n\n\nBreak\n\n\n\n\nImages\n\n\n\n\nSuperscript\n \n100m2\n\n\nSubscript\n \n1 billion tonnes CO2e\n\n\nTask list\n- [x]\n- [x] Oat milk\n\n\nEmoji\n:EMOJICODE:\n:+1:\n\n\nFootnote\n[^1]\nsee reference below[^1]\n\n\nComments\n\n\n\n\nIgnore markdown\n**\n*italics*",
+    "crumbs": [
+      "Markdown"
+    ]
+  },
+  {
+    "objectID": "environments-python.html",
+    "href": "environments-python.html",
+    "title": "Virtual environments",
+    "section": "",
+    "text": "Windows",
+    "crumbs": [
+      "Python",
+      "Virtual environments"
+    ]
+  },
+  {
+    "objectID": "environments-python.html#windows",
+    "href": "environments-python.html#windows",
+    "title": "Virtual environments",
+    "section": "",
+    "text": "conda\n\nOpen Anaconda Prompt\nCreate a conda environment (with Python version)\nconda create -n dev python=3.8\nList all the available environments\nconda env list\nActivate the environment\nconda activate dev\n\nInstall pip (Package Installer for Python)\nconda install pip\nInstall ipykernel to use Jupyter notebooks\n(dev)&gt;pip install ipykernel\nPoint Jupyter to the new kernel\nipython kernel install --name=dev\nOpen VS Code click Select Interpreter. Then choose ‘Python 3.13.0 (’dev’) ~.exe’\nInstall necessary packages\ne.g. pip install pandas\n\nTo create a list of packages used in a project:\npip freeze &gt; requirements.txt\n\nDeactivate the environment\nconda deactivate\nDelete an environment\nconda remove -n dev --all\n\n\nvenv\n\nOpen Anaconda Prompt\nNavigate to project directory\ncd path/to/folder\nCreate a venv environment\npython -m venv .\\dev\nCheck folder has been created\ndir\nActivate the environment\ndev\\Scripts\\activate\n\n\nDeactivate the environment deactivate",
+    "crumbs": [
+      "Python",
+      "Virtual environments"
+    ]
+  },
+  {
+    "objectID": "environments-python.html#mac",
+    "href": "environments-python.html#mac",
+    "title": "Virtual environments",
+    "section": "Mac",
+    "text": "Mac\n\nOpen Terminal and install Python using Homebrew\n\n\nbrew --version\nbrew install python3\npython --version\n\nOpen VS Code and install Python extension\n\nCreate a virtual environment\n\nUse Command Palette (Ctrl+Shift+P) and Python: Create Environment\n\nSelect venv and choose latest Python interpreter\n\nRefresh terminal and add packages\npip install pandas",
+    "crumbs": [
+      "Python",
+      "Virtual environments"
+    ]
+  },
+  {
+    "objectID": "environments-python.html#useful-resources",
+    "href": "environments-python.html#useful-resources",
+    "title": "Virtual environments",
+    "section": "Useful resources",
+    "text": "Useful resources\n\nNHS RAP Community of Practice: Virtual environments",
+    "crumbs": [
+      "Python",
+      "Virtual environments"
+    ]
+  },
+  {
+    "objectID": "eda-python.html",
+    "href": "eda-python.html",
+    "title": "6  Exploratory Data Analysis",
+    "section": "",
+    "text": "import os\nimport pandas as pd\nimport numpy as np\n\n\n7 Get working directory\n\nos.getcwd()\n\n\n\n8 Change working directory\n\nos.chdir(\"C:/Users/partrh/Training/python/speedofanimals\")\n\n\n\n9 Create a series\n\npd.Series([\"African Bush Elephant\",\"African Wild Dog\",\"Black Mamba\",\"Brown Bear\",\"Cheetah\"])\n\n\n\n10 Create a dataframe\n\npd.DataFrame({\"name\": [\"African Bush Elephant\",\"African Wild Dog\",\"Black Mamba\",\"Brown Bear\",\"Cheetah\"], \"habitat\": [\"Land\",\"Land\",\"Land\",\"Land\",\"Land\"],\"speed\": [40,72.5,32.2,35,120]})\n\n\n\n11 Import data\n\ndf = pd.read_csv(\"data/speed_of_animals.csv\")\n\n\n\n12 Explore data\n\ndf.info() # overview\ndf.shape # rows and columns\ndf.dtypes # data types\ndf['name'].dtypes # data type of individual column\ndf.columns.tolist() # list columns\n\n\n# Sort data\ndf.sort_values(by = \"speed_kph\", ascending = False)\ndf.sort_values(by=[\"speed_kph\", \"habitat\"], ascending=[False, False]) # sort by group\n\n\n# Select columns\ndf[[\"name\",\"speed_kph\"]]\n\n\n# Select columns by data type\ndf.select_dtypes(include=[\"O\"]) # or 'object'\ndf.select_dtypes(include=[\"integer\"])\ndf.select_dtypes(include=[\"float\"])\n\n\n\n13 Filtering\n\ndf[df['name'] == \"Wahoo\"]\ndf[df['speed_kph'] &gt; 100]\ndf[(df[\"habitat\"] == \"Land\") & (df[\"speed_kph\"] &gt; 100)]\n\nanimals = [\"Cheetah\", \"Ostrich\", \"Common Octopus\"]\ndf[df[\"name\"].isin(animals)] # multiple values\n\ndf[df[\"mass_kg\"].between(0, 1)] # between\n\ndf[~(df[\"habitat\"] == \"Land\")] # not equal to\n\ndf[df[\"name\"].str.contains(\"Do\")] # contains string (case sensitive)\n\n\n\n14 Create new columns\n\ndf[\"speed_mph\"] = df[\"speed_kph\"] * 0.6213\ndf[\"fastest\"] = df[\"speed_mph\"] &gt; 60\n\n\n\n15 Mapping new values\n\ndf[\"aka\"] = df[\"name\"].map({\"Cheetah\":\"Big cat\",\n                            \"Black Mamba\":\"Poisonous snake\", \n                            \"Killer Whale\": \"Orca\"})\n\n\n\n16 Deleting columns\n\ndel df[\"aka\"]\ndf.drop(columns = ['fastest', 'aka'], axis = 1, inplace = True)\n\n\n\n17 Merging data\n\ndf_merge = pd.merge(left = joining_data1,\n                    right = joining_data2, \n                    how = \"left\",\n                    on = \"name\",\n                    indicator = True)\n\n\n\n18 Unique values\n\ndf[\"habitat\"].unique()\n\n\n\n19 Recode values\n\ndf.loc[df[\"habitat\"] == \"Water\", \"habitat\"]  = \"Marine\"\ndf[df[\"habitat\"] == \"Marine\"].head()\n\n\n\n20 Change strings to lowercase\n\ndf[\"habitat\"] = df[\"habitat\"].str.lower()\n\n\n\n21 Rename columns\n\ndf.rename(columns={\"name\": \"animal_name\"}, inplace = True)\n\n\n\n22 Fix missing values\n\ndf.dtypes\ndf[df['speed_kph'] == \".\"]\ndf.loc[df[\"speed_kph\"] == \".\", \"speed_kph\"] = None # set \".\" to None\ndf[\"speed_kph\"] = pd.to_numeric(df[\"speed_kph\"]) # convert to number\ndf[\"speed_kph\"].dtypes # check results\n\n\n# Summary statistics\ndf.describe()\ndf['length_cm'].min()\ndf['length_cm'].max()\ndf['length_cm'].quantile(q=0.25)\ndf['length_cm'].quantile(q=[0, 0.25, 0.5, 0.75, 1])\ndf['length_cm'].mean()\ndf['length_cm'].mode()\ndf['length_cm'].median()\ndf['length_cm'].std()\ndf['length_cm'].var()\ndf['length_cm'].count()\ndf['length_cm'].isna().sum() # count NA values\ndf['habitat'].value_counts() # count by group\ndf['habitat'].unique() # unique values\ndf['habitat'].nunique() # number of unique values\ndf['length_cm_bins'] = pd.cut(df[\"length_cm\"], bins = 10) # create size bands\ndf['length_cm_bins'].unique()\n\ndf[\"length_cm_bins_labels\"] = pd.cut(df[\"length_cm\"], # custom bins and labels\n                                     bins = np.arange(start = 0, stop = (df[\"length_cm\"].max() + 1), step = 1000), \n                                     labels = [\"Short\",\"Average\",\"Long\"])\ndf[\"length_cm_bins_labels\"].unique()\ndf.groupby(by = \"habitat\")[\"length_cm\"].count() # count by group\ndf.groupby(by = \"habitat\")[\"length_cm\"].mean() # mean by group\ndf.groupby(by = \"habitat\").agg({\"length_cm\": \"mean\", # summary statisics by group\n                                \"mass_kg\": \"mean\", \n                                \"speed_kph\": \"mean\"})",
+    "crumbs": [
+      "Python",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Exploratory Data Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "environments-py.html",
+    "href": "environments-py.html",
+    "title": "6  Virtual environments",
+    "section": "",
+    "text": "6.1 Windows",
+    "crumbs": [
+      "Python",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Virtual environments</span>"
+    ]
+  },
+  {
+    "objectID": "environments-py.html#windows",
+    "href": "environments-py.html#windows",
+    "title": "6  Virtual environments",
+    "section": "",
+    "text": "6.1.1 conda\n\nOpen Anaconda Prompt\nCreate a conda environment (with Python version)\nconda create -n dev python=3.8\nList all the available environments\nconda env list\nActivate the environment\nconda activate dev\n\nInstall pip (Package Installer for Python)\nconda install pip\nInstall ipykernel to use Jupyter notebooks\n(dev)&gt;pip install ipykernel\nPoint Jupyter to the new kernel\nipython kernel install --name=dev\nOpen VS Code click Select Interpreter. Then choose ‘Python 3.13.0 (’dev’) ~.exe’\nInstall necessary packages\ne.g. pip install pandas\n\nTo create a list of packages used in a project:\npip freeze &gt; requirements.txt\n\nDeactivate the environment\nconda deactivate\nDelete an environment\nconda remove -n dev --all\n\n\n6.1.2 venv\n\nOpen Anaconda Prompt\nNavigate to project directory\ncd path/to/folder\nCreate a venv environment\npython -m venv .\\dev\nCheck folder has been created\ndir\nActivate the environment\ndev\\Scripts\\activate\n\n\nDeactivate the environment deactivate",
+    "crumbs": [
+      "Python",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Virtual environments</span>"
+    ]
+  },
+  {
+    "objectID": "environments-py.html#mac",
+    "href": "environments-py.html#mac",
+    "title": "6  Virtual environments",
+    "section": "6.2 Mac",
+    "text": "6.2 Mac\n\nOpen Terminal and install Python using Homebrew\n\n\nbrew --version\nbrew install python3\npython --version\n\nOpen VS Code and install Python extension\n\nCreate a virtual environment\n\nUse Command Palette (Ctrl+Shift+P) and Python: Create Environment\n\nSelect venv and choose latest Python interpreter\n\nRefresh terminal and add packages\npip install pandas",
+    "crumbs": [
+      "Python",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Virtual environments</span>"
+    ]
+  },
+  {
+    "objectID": "eda-py.html",
+    "href": "eda-py.html",
+    "title": "6  Exploratory Data Analysis",
+    "section": "",
+    "text": "import os\nimport pandas as pd\nimport numpy as np\n\n\n7 Get working directory\n\nos.getcwd()\n\n\n\n8 Change working directory\n\nos.chdir(\"C:/Users/partrh/Training/python/speedofanimals\")\n\n\n\n9 Create a series\n\npd.Series([\"African Bush Elephant\",\"African Wild Dog\",\"Black Mamba\",\"Brown Bear\",\"Cheetah\"])\n\n\n\n10 Create a dataframe\n\npd.DataFrame({\"name\": [\"African Bush Elephant\",\"African Wild Dog\",\"Black Mamba\",\"Brown Bear\",\"Cheetah\"], \"habitat\": [\"Land\",\"Land\",\"Land\",\"Land\",\"Land\"],\"speed\": [40,72.5,32.2,35,120]})\n\n\n\n11 Import data\n\ndf = pd.read_csv(\"data/speed_of_animals.csv\")\n\n\n\n12 Explore data\n\ndf.info() # overview\ndf.shape # rows and columns\ndf.dtypes # data types\ndf['name'].dtypes # data type of individual column\ndf.columns.tolist() # list columns\n\n\n# Sort data\ndf.sort_values(by = \"speed_kph\", ascending = False)\ndf.sort_values(by=[\"speed_kph\", \"habitat\"], ascending=[False, False]) # sort by group\n\n\n# Select columns\ndf[[\"name\",\"speed_kph\"]]\n\n\n# Select columns by data type\ndf.select_dtypes(include=[\"O\"]) # or 'object'\ndf.select_dtypes(include=[\"integer\"])\ndf.select_dtypes(include=[\"float\"])\n\n\n\n13 Filtering\n\ndf[df['name'] == \"Wahoo\"]\ndf[df['speed_kph'] &gt; 100]\ndf[(df[\"habitat\"] == \"Land\") & (df[\"speed_kph\"] &gt; 100)]\n\nanimals = [\"Cheetah\", \"Ostrich\", \"Common Octopus\"]\ndf[df[\"name\"].isin(animals)] # multiple values\n\ndf[df[\"mass_kg\"].between(0, 1)] # between\n\ndf[~(df[\"habitat\"] == \"Land\")] # not equal to\n\ndf[df[\"name\"].str.contains(\"Do\")] # contains string (case sensitive)\n\n\n\n14 Create new columns\n\ndf[\"speed_mph\"] = df[\"speed_kph\"] * 0.6213\ndf[\"fastest\"] = df[\"speed_mph\"] &gt; 60\n\n\n\n15 Mapping new values\n\ndf[\"aka\"] = df[\"name\"].map({\"Cheetah\":\"Big cat\",\n                            \"Black Mamba\":\"Poisonous snake\", \n                            \"Killer Whale\": \"Orca\"})\n\n\n\n16 Deleting columns\n\ndel df[\"aka\"]\ndf.drop(columns = ['fastest', 'aka'], axis = 1, inplace = True)\n\n\n\n17 Merging data\n\ndf_merge = pd.merge(left = joining_data1,\n                    right = joining_data2, \n                    how = \"left\",\n                    on = \"name\",\n                    indicator = True)\n\n\n\n18 Unique values\n\ndf[\"habitat\"].unique()\n\n\n\n19 Recode values\n\ndf.loc[df[\"habitat\"] == \"Water\", \"habitat\"]  = \"Marine\"\ndf[df[\"habitat\"] == \"Marine\"].head()\n\n\n\n20 Change strings to lowercase\n\ndf[\"habitat\"] = df[\"habitat\"].str.lower()\n\n\n\n21 Rename columns\n\ndf.rename(columns={\"name\": \"animal_name\"}, inplace = True)\n\n\n\n22 Fix missing values\n\ndf.dtypes\ndf[df['speed_kph'] == \".\"]\ndf.loc[df[\"speed_kph\"] == \".\", \"speed_kph\"] = None # set \".\" to None\ndf[\"speed_kph\"] = pd.to_numeric(df[\"speed_kph\"]) # convert to number\ndf[\"speed_kph\"].dtypes # check results\n\n\n# Summary statistics\ndf.describe()\ndf['length_cm'].min()\ndf['length_cm'].max()\ndf['length_cm'].quantile(q=0.25)\ndf['length_cm'].quantile(q=[0, 0.25, 0.5, 0.75, 1])\ndf['length_cm'].mean()\ndf['length_cm'].mode()\ndf['length_cm'].median()\ndf['length_cm'].std()\ndf['length_cm'].var()\ndf['length_cm'].count()\ndf['length_cm'].isna().sum() # count NA values\ndf['habitat'].value_counts() # count by group\ndf['habitat'].unique() # unique values\ndf['habitat'].nunique() # number of unique values\ndf['length_cm_bins'] = pd.cut(df[\"length_cm\"], bins = 10) # create size bands\ndf['length_cm_bins'].unique()\n\ndf[\"length_cm_bins_labels\"] = pd.cut(df[\"length_cm\"], # custom bins and labels\n                                     bins = np.arange(start = 0, stop = (df[\"length_cm\"].max() + 1), step = 1000), \n                                     labels = [\"Short\",\"Average\",\"Long\"])\ndf[\"length_cm_bins_labels\"].unique()\ndf.groupby(by = \"habitat\")[\"length_cm\"].count() # count by group\ndf.groupby(by = \"habitat\")[\"length_cm\"].mean() # mean by group\ndf.groupby(by = \"habitat\").agg({\"length_cm\": \"mean\", # summary statisics by group\n                                \"mass_kg\": \"mean\", \n                                \"speed_kph\": \"mean\"})",
+    "crumbs": [
+      "Python",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Exploratory Data Analysis</span>"
+    ]
+  }
+]
