@@ -154,7 +154,7 @@
     "href": "packages-r.html#setup",
     "title": "5  Packages",
     "section": "",
-    "text": "Create package template: usethis::create_package(\"~rproj/pkgname\")\nEdit DESCRIPTION\nAdd a LICENSE: usethis::use_ccby_licence()\nAdd Authors\nCreate and update README.md: usethis::use_readme_rmd()\nLoad package: devtools::load()",
+    "text": "Create package template\nusethis::create_package(\"~rproj/pkgname\")\nEdit DESCRIPTION\n\nAdd a LICENSE\nusethis::use_ccby_licence()\n\nAdd Authors\n\nCreate and update README.md\nusethis::use_readme_rmd()\n\nLoad package\ndevtools::load()",
     "crumbs": [
       "R",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Packages</span>"
@@ -165,7 +165,7 @@
     "href": "packages-r.html#add-data",
     "title": "5  Packages",
     "section": "5.2 Add data",
-    "text": "5.2 Add data\n\nCreate folder for raw data and .R file: usethis::use_data_raw(\"dataset\")\nEdit dataset.R\n\nlibrary(readr)\ndownload.file(url = \"\", destfile = \"data-raw/dataset.csv\")\ndf &lt;- read_csv(\"data-raw/dataset.csv\")\nusethis::use_data(dataset, overwrite = TRUE)\n\nAdd data-raw to .gitignore\nAdd documentation: usethis::use_r(\"dataset\")\nUpdate package documentation: devtools::document()\nLoad in package: devtools::load_all(\".\")\nAccess data: data(\"dataset\", package = \"pkgname\")\nView documentation: ?pkgname::dataset",
+    "text": "5.2 Add data\n\nCreate folder for raw data and .R file\nusethis::use_data_raw(\"dataset\")\nEdit dataset.R\n\nlibrary(readr)\ndownload.file(url = \"\", destfile = \"data-raw/dataset.csv\")\ndf &lt;- read_csv(\"data-raw/dataset.csv\")\nusethis::use_data(dataset, overwrite = TRUE)\n\nAdd data-raw to .gitignore\nAdd documentation\nusethis::use_r(\"dataset\")\nUpdate package documentation\ndevtools::document()\n\nLoad in package\ndevtools::load_all(\".\")\nAccess data\ndata(\"dataset\", package = \"pkgname\")\nView documentation\n?pkgname::dataset",
     "crumbs": [
       "R",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Packages</span>"
@@ -198,7 +198,7 @@
     "href": "packages-r.html#vignettes",
     "title": "5  Packages",
     "section": "5.5 Vignettes",
-    "text": "5.5 Vignettes\nhelp(package = \"stringr\") # list package vignettes\nusethis::use_vignette(name = \"introduction\", title = \"An introduction to a function\") # create vignette\n?rmarkdown::html_vignette # change the YAML header\ndevtools::build_vignettes() # build vignette to add to package\n\nFinish writing vignette\nUpdate _pkgdown.yml to include file name of vignette.\nAdd package dependency to NAMESPACE: r usethis::use_dev_package(\"gt\")",
+    "text": "5.5 Vignettes\nhelp(package = \"stringr\") # list package vignettes\nusethis::use_vignette(name = \"introduction\", title = \"An introduction to a function\") # create vignette\n?rmarkdown::html_vignette # change the YAML header\ndevtools::build_vignettes() # build vignette to add to package\n\nFinish writing vignette\nUpdate _pkgdown.yml to include file name of vignette.\nAdd package dependency to NAMESPACE\nr usethis::use_dev_package(\"gt\")",
     "crumbs": [
       "R",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Packages</span>"

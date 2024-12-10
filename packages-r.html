@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -231,58 +265,74 @@ ul.task-list li input[type="checkbox"] {
 <section id="setup" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">5.1</span> Setup</h2>
 <ol type="1">
-<li>Create package template: <code>usethis::create_package("~rproj/pkgname")</code></li>
-<li>Edit DESCRIPTION</li>
-<li>Add a LICENSE: <code>usethis::use_ccby_licence()</code></li>
-<li>Add Authors</li>
-<li>Create and update README.md: <code>usethis::use_readme_rmd()</code></li>
-<li>Load package: <code>devtools::load()</code></li>
+<li>Create package template<br>
+<code>usethis::create_package("~rproj/pkgname")</code></li>
+<li>Edit DESCRIPTION<br>
+</li>
+<li>Add a LICENSE<br>
+<code>usethis::use_ccby_licence()</code><br>
+</li>
+<li>Add Authors<br>
+</li>
+<li>Create and update README.md<br>
+<code>usethis::use_readme_rmd()</code><br>
+</li>
+<li>Load package<br>
+<code>devtools::load()</code></li>
 </ol>
 </section>
 <section id="add-data" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="add-data"><span class="header-section-number">5.2</span> Add data</h2>
 <ol type="1">
-<li>Create folder for raw data and .R file: <code>usethis::use_data_raw("dataset")</code></li>
+<li>Create folder for raw data and .R file<br>
+<code>usethis::use_data_raw("dataset")</code></li>
 <li>Edit dataset.R</li>
 </ol>
-<pre><code>library(readr)
-download.file(url = "", destfile = "data-raw/dataset.csv")
-df &lt;- read_csv("data-raw/dataset.csv")
-usethis::use_data(dataset, overwrite = TRUE)</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="at">url =</span> <span class="st">""</span>, <span class="at">destfile =</span> <span class="st">"data-raw/dataset.csv"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-raw/dataset.csv"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_data</span>(dataset, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="3" type="1">
 <li>Add data-raw to .gitignore</li>
-<li>Add documentation: <code>usethis::use_r("dataset")</code></li>
-<li>Update package documentation: <code>devtools::document()</code></li>
-<li>Load in package: <code>devtools::load_all(".")</code></li>
-<li>Access data: <code>data("dataset", package = "pkgname")</code></li>
-<li>View documentation: <code>?pkgname::dataset</code></li>
+<li>Add documentation<br>
+<code>usethis::use_r("dataset")</code></li>
+<li>Update package documentation<br>
+<code>devtools::document()</code><br>
+</li>
+<li>Load in package<br>
+<code>devtools::load_all(".")</code></li>
+<li>Access data<br>
+<code>data("dataset", package = "pkgname")</code></li>
+<li>View documentation<br>
+<code>?pkgname::dataset</code></li>
 </ol>
 </section>
 <section id="functions" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="functions"><span class="header-section-number">5.3</span> Functions</h2>
-<pre><code>usethis::use_r("functioname") # create function 
-usethis::use_package(package = "writexl") # add package dependencies
-devtools:: document() # add documentation
-devtools::check() # run check</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_r</span>(<span class="st">"functioname"</span>) <span class="co"># create function </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="at">package =</span> <span class="st">"writexl"</span>) <span class="co"># add package dependencies</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span> <span class="fu">document</span>() <span class="co"># add documentation</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">check</span>() <span class="co"># run check</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="unit-testing" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="unit-testing"><span class="header-section-number">5.4</span> Unit testing</h2>
-<pre><code>devtools::use_r("functioname") # create function
-devtools::load_all(".") # load function
-testthat::use_testthat() # set up testing environment
-testthat::use_test() # create test file
-devtools::test() # test function</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">use_r</span>(<span class="st">"functioname"</span>) <span class="co"># create function</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">load_all</span>(<span class="st">"."</span>) <span class="co"># load function</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>testthat<span class="sc">::</span><span class="fu">use_testthat</span>() <span class="co"># set up testing environment</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>testthat<span class="sc">::</span><span class="fu">use_test</span>() <span class="co"># create test file</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">test</span>() <span class="co"># test function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="vignettes" class="level2" data-number="5.5">
 <h2 data-number="5.5" class="anchored" data-anchor-id="vignettes"><span class="header-section-number">5.5</span> Vignettes</h2>
-<pre><code>help(package = "stringr") # list package vignettes
-usethis::use_vignette(name = "introduction", title = "An introduction to a function") # create vignette
-?rmarkdown::html_vignette # change the YAML header
-devtools::build_vignettes() # build vignette to add to package</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="at">package =</span> <span class="st">"stringr"</span>) <span class="co"># list package vignettes</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_vignette</span>(<span class="at">name =</span> <span class="st">"introduction"</span>, <span class="at">title =</span> <span class="st">"An introduction to a function"</span>) <span class="co"># create vignette</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>?rmarkdown<span class="sc">::</span>html_vignette <span class="co"># change the YAML header</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">build_vignettes</span>() <span class="co"># build vignette to add to package</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol type="1">
 <li>Finish writing vignette</li>
 <li>Update _pkgdown.yml to include file name of vignette.</li>
-<li>Add package dependency to NAMESPACE: <code>r usethis::use_dev_package("gt")</code></li>
+<li>Add package dependency to NAMESPACE<br>
+<code>r usethis::use_dev_package("gt")</code></li>
 </ol>
 
 
