@@ -4,9 +4,9 @@
     "href": "index.html",
     "title": "Cheatsheets",
     "section": "",
-    "text": "Welcome",
+    "text": "How to use this book",
     "crumbs": [
-      "Welcome"
+      "How to use this book"
     ]
   },
   {
@@ -275,6 +275,72 @@
     "crumbs": [
       "Python",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Exploratory Data Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "packages-r.html",
+    "href": "packages-r.html",
+    "title": "5  Packages",
+    "section": "",
+    "text": "5.1 Setup",
+    "crumbs": [
+      "R",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Packages</span>"
+    ]
+  },
+  {
+    "objectID": "packages-r.html#setup",
+    "href": "packages-r.html#setup",
+    "title": "5  Packages",
+    "section": "",
+    "text": "Create package template\nusethis::create_package(\"~rproj/pkgname\")\nEdit DESCRIPTION\n\nAdd a LICENSE\nusethis::use_ccby_licence()\n\nAdd Authors\n\nCreate and update README.md\nusethis::use_readme_rmd()\n\nLoad package\ndevtools::load()",
+    "crumbs": [
+      "R",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Packages</span>"
+    ]
+  },
+  {
+    "objectID": "packages-r.html#add-data",
+    "href": "packages-r.html#add-data",
+    "title": "5  Packages",
+    "section": "5.2 Add data",
+    "text": "5.2 Add data\n\nCreate folder for raw data and .R file\nusethis::use_data_raw(\"dataset\")\nEdit dataset.R\n\nlibrary(readr)\ndownload.file(url = \"\", destfile = \"data-raw/dataset.csv\")\ndf &lt;- read_csv(\"data-raw/dataset.csv\")\nusethis::use_data(dataset, overwrite = TRUE)\n\nAdd data-raw to .gitignore\nAdd documentation\nusethis::use_r(\"dataset\")\nUpdate package documentation\ndevtools::document()\n\nLoad in package\ndevtools::load_all(\".\")\nAccess data\ndata(\"dataset\", package = \"pkgname\")\nView documentation\n?pkgname::dataset",
+    "crumbs": [
+      "R",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Packages</span>"
+    ]
+  },
+  {
+    "objectID": "packages-r.html#functions",
+    "href": "packages-r.html#functions",
+    "title": "5  Packages",
+    "section": "5.3 Functions",
+    "text": "5.3 Functions\nusethis::use_r(\"functioname\") # create function \nusethis::use_package(package = \"writexl\") # add package dependencies\ndevtools:: document() # add documentation\ndevtools::check() # run check",
+    "crumbs": [
+      "R",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Packages</span>"
+    ]
+  },
+  {
+    "objectID": "packages-r.html#unit-testing",
+    "href": "packages-r.html#unit-testing",
+    "title": "5  Packages",
+    "section": "5.4 Unit testing",
+    "text": "5.4 Unit testing\ndevtools::use_r(\"functioname\") # create function\ndevtools::load_all(\".\") # load function\ntestthat::use_testthat() # set up testing environment\ntestthat::use_test() # create test file\ndevtools::test() # test function",
+    "crumbs": [
+      "R",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Packages</span>"
+    ]
+  },
+  {
+    "objectID": "packages-r.html#vignettes",
+    "href": "packages-r.html#vignettes",
+    "title": "5  Packages",
+    "section": "5.5 Vignettes",
+    "text": "5.5 Vignettes\nhelp(package = \"stringr\") # list package vignettes\nusethis::use_vignette(name = \"introduction\", title = \"An introduction to a function\") # create vignette\n?rmarkdown::html_vignette # change the YAML header\ndevtools::build_vignettes() # build vignette to add to package\n\nFinish writing vignette\nUpdate _pkgdown.yml to include file name of vignette.\nAdd package dependency to NAMESPACE\nr usethis::use_dev_package(\"gt\")",
+    "crumbs": [
+      "R",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Packages</span>"
     ]
   }
 ]

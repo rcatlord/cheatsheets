@@ -1,34 +1,51 @@
 ---
 title: "Packages"
+execute:
+  echo: true
+  eval: false
+  message: false
+  warning: false
+  freeze: auto
 ---
 
 ## Setup
-1. Create package template: `usethis::create_package("~rproj/pkgname")`
-2. Edit DESCRIPTION
-3. Add a LICENSE: `usethis::use_ccby_licence()`
-4. Add Authors
-5. Create and update README.md: `usethis::use_readme_rmd()`
-6. Load package: `devtools::load()`
+1. Create package template     
+`usethis::create_package("~rproj/pkgname")`
+2. Edit DESCRIPTION    
+3. Add a LICENSE    
+`usethis::use_ccby_licence()`   
+4. Add Authors    
+5. Create and update README.md     
+`usethis::use_readme_rmd()`    
+6. Load package     
+`devtools::load()`
 
 ## Add data
-1. Create folder for raw data and .R file: `usethis::use_data_raw("dataset")`
-2. Edit dataset.R
+1. Create folder for raw data and .R file    
+`usethis::use_data_raw("dataset")`
+2. Edit dataset.R    
 
-```
+```r
 library(readr)
 download.file(url = "", destfile = "data-raw/dataset.csv")
 df <- read_csv("data-raw/dataset.csv")
 usethis::use_data(dataset, overwrite = TRUE)
 ```
+
 3. Add data-raw to .gitignore
-4. Add documentation: `usethis::use_r("dataset")`
-5. Update package documentation: `devtools::document()`
-6. Load in package: `devtools::load_all(".")`
-7. Access data: `data("dataset", package = "pkgname")`
-8. View documentation: `?pkgname::dataset`
+4. Add documentation     
+`usethis::use_r("dataset")`
+5. Update package documentation    
+`devtools::document()`   
+6. Load in package     
+`devtools::load_all(".")`
+7. Access data     
+`data("dataset", package = "pkgname")`
+8. View documentation     
+`?pkgname::dataset`
 
 ## Functions
-```
+```r
 usethis::use_r("functioname") # create function 
 usethis::use_package(package = "writexl") # add package dependencies
 devtools:: document() # add documentation
@@ -36,7 +53,7 @@ devtools::check() # run check
 ```
 
 ## Unit testing
-```
+```r
 devtools::use_r("functioname") # create function
 devtools::load_all(".") # load function
 testthat::use_testthat() # set up testing environment
@@ -45,7 +62,7 @@ devtools::test() # test function
 ```
 
 ## Vignettes
-```
+```r
 help(package = "stringr") # list package vignettes
 usethis::use_vignette(name = "introduction", title = "An introduction to a function") # create vignette
 ?rmarkdown::html_vignette # change the YAML header
@@ -54,4 +71,5 @@ devtools::build_vignettes() # build vignette to add to package
 
 1. Finish writing vignette
 2. Update _pkgdown.yml to include file name of vignette.
-2. Add package dependency to NAMESPACE: `r usethis::use_dev_package("gt")`
+2. Add package dependency to NAMESPACE    
+`r usethis::use_dev_package("gt")`
