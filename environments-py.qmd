@@ -39,11 +39,11 @@ Delete an environment
 2. Navigate to project directory   
 `cd path/to/folder`
 3. Create a `venv` environment    
-`python -m venv .\dev`
+`python -m venv .venv`
 4. Check folder has been created    
 `dir`
 5. Activate the environment    
-`dev\Scripts\activate`
+`.venv\Scripts\activate`
 
 ---
 
