@@ -1,5 +1,7 @@
 # Git {.unnumbered}
 
+## Useful commands
+
 ### Configure git
 set name for commits  
 `$  git config --global user.name "Your Name"`   
@@ -163,3 +165,11 @@ $ git push origin main # push main branch
 $ git branch -d dev # delete local dev branch
 $ git push origin --delete dev # delete remote dev branch
 ```
+
+## Further resources
+- [Happy Git and GitHub for the useR ](https://happygitwithr.com/) by Jenny Bryan
+- [Software Carpentry Lessons](https://software-carpentry.org/lessons/)
+- [Learn Git Branching](https://learngitbranching.js.org/)
+- [Pull Request Flow with usethis](https://www.garrickadenbuie.com/blog/pull-request-flow-usethis)
+- [Oh Shit, Git!?!](https://ohshitgit.com/)
+- [Git good practice: branching](https://www.linkedin.com/posts/samhollings_git-opensource-reproducibleanalyticalpipelines-activity-7202262570357993472-gum5?utm_source=share&utm_medium=member_desktop)
