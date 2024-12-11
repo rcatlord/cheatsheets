@@ -98,11 +98,11 @@
     ]
   },
   {
-    "objectID": "further-resources-rap.html#furter-materials",
-    "href": "further-resources-rap.html#furter-materials",
+    "objectID": "further-resources-rap.html#further-materials",
+    "href": "further-resources-rap.html#further-materials",
     "title": "1  Further resources",
-    "section": "1.8 Furter materials",
-    "text": "1.8 Furter materials\n\nUK Government Analysis Function learning pathway\nReproducible Analytical Pipelines (RAP) using R. MOOC by Matthew Gregory.",
+    "section": "1.8 Further materials",
+    "text": "1.8 Further materials\n\nUK Government Analysis Function learning pathway\nReproducible Analytical Pipelines (RAP) using R. MOOC by Matthew Gregory.",
     "crumbs": [
       "RAP",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Further resources</span>"
@@ -377,7 +377,7 @@
     "href": "markdown.html#github-flavored-markdown",
     "title": "Markdown",
     "section": "",
-    "text": "Style\nSyntax\nExample\n\n\n\n\nStrikethrough\n~~ ~~\nstrikethrough\n\n\nHighlight\n== ==\n==highlight==\n\n\nBlockquotes\n&gt;&gt;\n&gt;&gt; A quoted paragraph inside a quotation\n\n\nBreak\n\n\n\n\nImages\n\n\n\n\nSuperscript\n \n100m2\n\n\nSubscript\n \n1 billion tonnes CO2e\n\n\nTask list\n- [x]\n- [x] Oat milk\n\n\nEmoji\n:EMOJICODE:\n:+1:\n\n\nFootnote\n[^1]\nsee reference below[^1]\n\n\nComments\n\n\n\n\nIgnore markdown\n**\n*italics*",
+    "text": "Style\nSyntax\nExample\n\n\n\n\nStrikethrough\n~~ ~~\nstrikethrough\n\n\nHighlight\n== ==\n==highlight==\n\n\nBlockquotes\n&gt;&gt;\n&gt;&gt; A quoted paragraph inside a quotation\n\n\nBreak\n&lt;/br&gt;\n&lt;/br&gt;\n\n\nImages\n![]()\n\n\n\nSuperscript\n&lt;sup&gt; &lt;/sup&gt;\n100m2\n\n\nSubscript\n&lt;sub&gt; &lt;/sub&gt;\n1 billion tonnes CO2e\n\n\nTask list\n- [x]\n- [x] Oat milk\n\n\nEmoji\n:EMOJICODE:\n:+1:\n\n\nFootnote\n[^1]\nsee reference below[^1]\n\n\nComments\n&lt;!– –&gt;\n&lt;!– This content will not appear in the rendered Markdown –&gt;\n\n\nIgnore markdown\n**\n*italics*",
     "crumbs": [
       "Markdown",
       "Markdown"
