@@ -34,7 +34,27 @@
     "href": "git.html",
     "title": "Git",
     "section": "",
+    "text": "Useful commands",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "git.html#useful-commands",
+    "href": "git.html#useful-commands",
+    "title": "Git",
+    "section": "",
     "text": "Configure git\nset name for commits\n$  git config --global user.name \"Your Name\"\nset email address for commits\n$ git config --global user.email \"you@example.com\"\ncheck email is set correctly\n$ git config --global user.email\nlist all configuration values\n$ git config --list\n\n\nHelp?\nlist all config options\n$ git config --help\n\n\nChange directory and create folder\nset directory\n$ cd C:/Users/partrh/GitHub\ncreate directory\n$ mkdir cheatsheets\nchange directory\n$ cd cheatsheets\nlist contents of directory\n$ ls\n\n\nInitialise existing repo\ntrack directory with git\n$ git init\nremove git from directory\n$ rm -rf .git\ncreate .gitignore file\n$ touch .gitignore\n\n\nStaging\nadd all untracked files to staging area\n$ git add -A\nadd particular file to staging area\n$ git add cheatsheet.md\nremove all files from staging area\n$ git reset\nremove particular file from staging area\n$ git reset cheatsheet.md\n\n\nCommit\ncommit with message\n$ git commit -m \"Meaningful commit message\"\ncompare versions\n$ git diff\n\n\nFork\nlist all remotes\n$ git remote -v\nclone remote repo in current directory\n$ git clone https://github.com/rcatlord/cheatsheets.git .\ncheck remote was cloned successfully\n$ git remote --verbose\n\n\nPull and push\nretrieve history from remote branches\n§ git fetch\npull all branches\n$ git fetch --all\npull latest changes from remote into local repo\n$ git pull\npush local commits to remote repo\n$ git push\n\n\nCreate branches\nshow all branches (local and remote)\n$ git branch -a\ncheck current branch\n$ git branch\ncheck local and remote branches\n$ git branch -a\ncreate new branch called ‘dev’\n$ git branch dev\nswitch to new branch\n$ git checkout dev\npush new branch to GitHub\n$ git push -u origin dev\n\n\nMerge branches\nswitch to main branch\n$ git checkout main\npull changes from remote main branch\n$ git pull origin main\nshow branches that have been merged\n$ git branch --merged\nmerge dev branch\n$ git merge dev\npush to main branch\n$ git push origin main\n\n\nDeleting branches\nshow merged branches\n$ git branch --merged\ndelete dev branch locally\n$ git branch -d dev\ncheck branches on remote\n$ git branch -a\ndelete branch remotely\n$ git push origin --delete dev\n\n\nUndo changes\nrevert modified files\n$ git checkout -f\nremove untracked files\n$ git clean -fd\nrollback to particular commit and push to remote\ngit reset --hard &lt;commit-hash&gt;`\ngit push --force origin &lt;branch-name&gt;\n\n\nMiscellaneous\npull specific file from other branch\ngit checkout dev file.txt\n\n\nTypical workflow\n$ git branch dev # create branch\n$ git checkout dev # switch to dev branch\n$ git status # check current branch\n$ git add -A # add changed files to staging area\n$ git commit -m \"Detailed message\" # commit changed files\n$ git push -origin dev # push dev branch to remote\n$ git checkout main # switch to main branch\n$ git pull origin main # pull latest changes to main\n$ git merge dev # merge dev to main branch\n$ git push origin main # push main branch\n$ git branch -d dev # delete local dev branch\n$ git push origin --delete dev # delete remote dev branch",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "git.html#further-resources",
+    "href": "git.html#further-resources",
+    "title": "Git",
+    "section": "Further resources",
+    "text": "Further resources\n\nHappy Git and GitHub for the useR by Jenny Bryan\nSoftware Carpentry Lessons\nLearn Git Branching\nPull Request Flow with usethis\nOh Shit, Git!?!\nGit good practice: branching",
     "crumbs": [
       "Git"
     ]
