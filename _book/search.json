@@ -145,6 +145,7 @@
     "section": "",
     "text": "GitHub Flavored Markdown",
     "crumbs": [
+      "Markdown",
       "Markdown"
     ]
   },
@@ -163,8 +164,9 @@
     "href": "git.html",
     "title": "Git",
     "section": "",
-    "text": "Configure git\nset name for commits\n$  git config --global user.name \"Your Name\"\nset email address for commits\n$ git config --global user.email \"you@example.com\"\ncheck email is set correctly\n$ git config --global user.email\nlist all configuration values\n$ git config --list\n\n\nHelp?\nlist all config options\n$ git config --help\n\n\nChange directory and create folder\nset directory\n$ cd C:/Users/partrh/GitHub\ncreate directory\n$ mkdir cheatsheets\nchange directory\n$ cd cheatsheets\nlist contents of directory\n$ ls\n\n\nInitialise existing repo\ntrack directory with git\n$ git init\nremove git from directory\n$ rm -rf .git\ncreate .gitignore file\n$ touch .gitignore\n\n\nStaging\nadd all untracked files to staging area\n$ git add -A\nadd particular file to staging area\n$ git add cheatsheet.md\nremove all files from staging area\n$ git reset\nremove particular file from staging area\n$ git reset cheatsheet.md\n\n\nCommit\ncommit with message\n$ git commit -m \"Meaningful commit message\"\ncompare versions\n$ git diff\n\n\nFork\nlist all remotes\n$ git remote -v\nclone remote repo in current directory\n$ git clone https://github.com/rcatlord/cheatsheets.git .\ncheck remote was cloned successfully\n$ git remote --verbose\n\n\nPull and push\nretrieve history from remote branches\n§ git fetch\npull all branches\n$ git fetch --all\npull latest changes from remote into local repo\n$ git pull\npush local commits to remote repo\n$ git push\n\n\nCreate branches\nshow all branches (local and remote)\n$ git branch -a\ncheck current branch\n$ git branch\ncheck local and remote branches\n$ git branch -a\ncreate new branch called ‘dev’\n$ git branch dev\nswitch to new branch\n$ git checkout dev\npush new branch to GitHub\n$ git push -u origin dev\n\n\nMerge branches\nswitch to main branch\n$ git checkout main\npull changes from remote main branch\n$ git pull origin main\nshow branches that have been merged\n$ git branch --merged\nmerge dev branch\n$ git merge dev\npush to main branch\n$ git push origin main\n\n\nDeleting branches\nshow merged branches\n$ git branch --merged\ndelete dev branch locally\n$ git branch -d dev\ncheck branches on remote\n$ git branch -a\ndelete branch remotely\n$ git push origin --delete dev\n\n\nUndo changes\nrevert modified files\n$ git checkout -f\nremove untracked files\n$ git clean -fd\nrollback to particular commit and push to remote\ngit reset --hard &lt;commit-hash&gt;`\ngit push --force origin &lt;branch-name&gt;\n\n\nMiscellaneous\npull specific file from other branch\ngit checkout dev file.txt\n\n\nTypical workflow\n$ git branch dev # create branch\n$ git checkout dev # switch to dev branch\n$ git status # check current branch\n$ git add -A # add changed files to staging area\n$ git commit -m \"Detailed message\" # commit changed files\n$ git push -origin dev # push dev branch to remote\n$ git checkout main # switch to main branch\n$ git pull origin main # pull latest changes to main\n$ git merge dev # merge dev to main branch\n$ git push origin main # push main branch\n$ git branch -d dev # delete local dev branch\n$ git push origin --delete dev # delete remote dev branch",
+    "text": "Useful commands",
     "crumbs": [
+      "Version control",
       "Git"
     ]
   },
@@ -173,8 +175,9 @@
     "href": "markdown.html#github-flavored-markdown",
     "title": "Markdown",
     "section": "",
-    "text": "Style\nSyntax\nExample\n\n\n\n\nStrikethrough\n~~ ~~\nstrikethrough\n\n\nHighlight\n== ==\n==highlight==\n\n\nBlockquotes\n&gt;&gt;\n&gt;&gt; A quoted paragraph inside a quotation\n\n\nBreak\n\n\n\n\nImages\n\n\n\n\nSuperscript\n \n100m2\n\n\nSubscript\n \n1 billion tonnes CO2e\n\n\nTask list\n- [x]\n- [x] Oat milk\n\n\nEmoji\n:EMOJICODE:\n:+1:\n\n\nFootnote\n[^1]\nsee reference below[^1]\n\n\nComments\n\n\n\n\nIgnore markdown\n**\n*italics*",
+    "text": "Style\nSyntax\nExample\n\n\n\n\nStrikethrough\n~~ ~~\nstrikethrough\n\n\nHighlight\n== ==\n==highlight==\n\n\nBlockquotes\n&gt;&gt;\n&gt;&gt; A quoted paragraph inside a quotation\n\n\nBreak\n&lt;/br&gt;\n&lt;/br&gt;\n\n\nImages\n![]()\n\n\n\nSuperscript\n&lt;sup&gt; &lt;/sup&gt;\n100m2\n\n\nSubscript\n&lt;sub&gt; &lt;/sub&gt;\n1 billion tonnes CO2e\n\n\nTask list\n- [x]\n- [x] Oat milk\n\n\nEmoji\n:EMOJICODE:\n:+1:\n\n\nFootnote\n[^1]\nsee reference below[^1]\n\n\nComments\n&lt;!– –&gt;\n&lt;!– This content will not appear in the rendered Markdown –&gt;\n\n\nIgnore markdown\n**\n*italics*",
     "crumbs": [
+      "Markdown",
       "Markdown"
     ]
   },
@@ -236,34 +239,34 @@
   {
     "objectID": "environments-py.html",
     "href": "environments-py.html",
-    "title": "6  Virtual environments",
+    "title": "7  Virtual environments",
     "section": "",
-    "text": "6.1 Windows",
+    "text": "7.1 Windows",
     "crumbs": [
       "Python",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Virtual environments</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Virtual environments</span>"
     ]
   },
   {
     "objectID": "environments-py.html#windows",
     "href": "environments-py.html#windows",
-    "title": "6  Virtual environments",
+    "title": "7  Virtual environments",
     "section": "",
-    "text": "6.1.1 conda\n\nOpen Anaconda Prompt\nCreate a conda environment (with Python version)\nconda create -n dev python=3.8\nList all the available environments\nconda env list\nActivate the environment\nconda activate dev\n\nInstall pip (Package Installer for Python)\nconda install pip\nInstall ipykernel to use Jupyter notebooks\n(dev)&gt;pip install ipykernel\nPoint Jupyter to the new kernel\nipython kernel install --name=dev\nOpen VS Code click Select Interpreter. Then choose ‘Python 3.13.0 (’dev’) ~.exe’\nInstall necessary packages\ne.g. pip install pandas\n\nTo create a list of packages used in a project:\npip freeze &gt; requirements.txt\n\nDeactivate the environment\nconda deactivate\nDelete an environment\nconda remove -n dev --all\n\n\n6.1.2 venv\n\nOpen Anaconda Prompt\nNavigate to project directory\ncd path/to/folder\nCreate a venv environment\npython -m venv .\\dev\nCheck folder has been created\ndir\nActivate the environment\ndev\\Scripts\\activate\n\n\nDeactivate the environment deactivate",
+    "text": "7.1.1 conda\n\nOpen Anaconda Prompt\nCreate a conda environment (with Python version)\nconda create -n dev python=3.8\nList all the available environments\nconda env list\nActivate the environment\nconda activate dev\n\nInstall pip (Package Installer for Python)\nconda install pip\nInstall ipykernel to use Jupyter notebooks\n(dev)&gt;pip install ipykernel\nPoint Jupyter to the new kernel\nipython kernel install --name=dev\nOpen VS Code click Select Interpreter. Then choose ‘Python 3.13.0 (’dev’) ~.exe’\nInstall necessary packages\ne.g. pip install pandas\n\nTo create a list of packages used in a project:\npip freeze &gt; requirements.txt\n\nDeactivate the environment\nconda deactivate\nDelete an environment\nconda remove -n dev --all\n\n\n7.1.2 venv\n\nOpen Anaconda Prompt\nNavigate to project directory\ncd path/to/folder\nCreate a venv environment\npython -m venv .venv\nCheck folder has been created\ndir\nActivate the environment\n.venv\\Scripts\\activate\n\n\nDeactivate the environment deactivate",
     "crumbs": [
       "Python",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Virtual environments</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Virtual environments</span>"
     ]
   },
   {
     "objectID": "environments-py.html#mac",
     "href": "environments-py.html#mac",
-    "title": "6  Virtual environments",
-    "section": "6.2 Mac",
-    "text": "6.2 Mac\n\nOpen Terminal and install Python using Homebrew\n\n\nbrew --version\nbrew install python3\npython --version\n\nOpen VS Code and install Python extension\n\nCreate a virtual environment\n\nUse Command Palette (Ctrl+Shift+P) and Python: Create Environment\n\nSelect venv and choose latest Python interpreter\n\nRefresh terminal and add packages\npip install pandas",
+    "title": "7  Virtual environments",
+    "section": "7.2 Mac",
+    "text": "7.2 Mac\n\nOpen Terminal and install Python using Homebrew\n\n\nbrew --version\nbrew install python3\npython --version\n\nOpen VS Code and install Python extension\n\nCreate a virtual environment\n\nUse Command Palette (Ctrl+Shift+P) and Python: Create Environment\n\nSelect venv and choose latest Python interpreter\n\nRefresh terminal and add packages\npip install pandas",
     "crumbs": [
       "Python",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Virtual environments</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Virtual environments</span>"
     ]
   },
   {
@@ -341,6 +344,138 @@
     "crumbs": [
       "R",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Packages</span>"
+    ]
+  },
+  {
+    "objectID": "further-resources-rap.html",
+    "href": "further-resources-rap.html",
+    "title": "1  Further resources",
+    "section": "",
+    "text": "1.1 RAP basics",
+    "crumbs": [
+      "RAP",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Further resources</span>"
+    ]
+  },
+  {
+    "objectID": "further-resources-rap.html#rap-basics",
+    "href": "further-resources-rap.html#rap-basics",
+    "title": "1  Further resources",
+    "section": "",
+    "text": "RAP Companion by Matthew Gregory and Matthew Upson\nNHS RAP Community of Practice - guidance on implementing RAP that is aimed at NHS Digital staff.\nReproducible Analytical Pipelines (RAP) by UK Government Analysis Function\nDuck Book - UK Government Analysis Function guidance on the quality assurance of code for analysis and research (QACAR)\nRAP Minimum Viable Product - guidance developed by the RAP Champions network\nBuilding reproducible analytical pipelines with R - book by Bruno Rodrigues\nBuilding Reproducible Analytical Pipelines - course by Bruno Rodrigues",
+    "crumbs": [
+      "RAP",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Further resources</span>"
+    ]
+  },
+  {
+    "objectID": "further-resources-rap.html#history-of-rap",
+    "href": "further-resources-rap.html#history-of-rap",
+    "title": "1  Further resources",
+    "section": "1.2 History of RAP",
+    "text": "1.2 History of RAP\n\nReproducible Analytical Pipelines. The original post on RAP by Matt Upson.\nWhy Government needs sustainable software too by Matt Upson\nDCMS Sectors Economic Estimates - The first RAP",
+    "crumbs": [
+      "RAP",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Further resources</span>"
+    ]
+  },
+  {
+    "objectID": "further-resources-rap.html#version-control",
+    "href": "further-resources-rap.html#version-control",
+    "title": "1  Further resources",
+    "section": "1.3 Version control",
+    "text": "1.3 Version control\n\nData Version Control for Reproducible Analytical Pipelines by Matt Upson",
+    "crumbs": [
+      "RAP",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Further resources</span>"
+    ]
+  },
+  {
+    "objectID": "further-resources-rap.html#quality-assurance",
+    "href": "further-resources-rap.html#quality-assurance",
+    "title": "1  Further resources",
+    "section": "1.4 Quality Assurance",
+    "text": "1.4 Quality Assurance\n\nCode review for statisticians, data scientists & modellers",
+    "crumbs": [
+      "RAP",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Further resources</span>"
+    ]
+  },
+  {
+    "objectID": "further-resources-rap.html#packages-and-templates",
+    "href": "further-resources-rap.html#packages-and-templates",
+    "title": "1  Further resources",
+    "section": "1.5 Packages and templates",
+    "text": "1.5 Packages and templates\n\ngovcookiecutter - template for data science projects within the public sector\ngptables - R package for writing consistently formatted statistical tables to Excel\ngovdown - R package for writing R Markdown documents with gov.uk formatting\nDHSC quarto templates",
+    "crumbs": [
+      "RAP",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Further resources</span>"
+    ]
+  },
+  {
+    "objectID": "further-resources-rap.html#rap-plans",
+    "href": "further-resources-rap.html#rap-plans",
+    "title": "1  Further resources",
+    "section": "1.6 RAP Plans",
+    "text": "1.6 RAP Plans\n\nDepartmental Reproducible Analytical Pipelines (RAP) plans",
+    "crumbs": [
+      "RAP",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Further resources</span>"
+    ]
+  },
+  {
+    "objectID": "further-resources-rap.html#case-studies",
+    "href": "further-resources-rap.html#case-studies",
+    "title": "1  Further resources",
+    "section": "1.7 Case studies",
+    "text": "1.7 Case studies\n\nReproducible Analytical Pipelines: How we saved 3 analysts 6 weeks of copying and pasting\nTransforming energy data pipelines\nBaltimore City’s Capital Improvement Program Report\nUsing Code to Automatically Style Charts for Publications",
+    "crumbs": [
+      "RAP",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Further resources</span>"
+    ]
+  },
+  {
+    "objectID": "further-resources-rap.html#further-materials",
+    "href": "further-resources-rap.html#further-materials",
+    "title": "1  Further resources",
+    "section": "1.8 Further materials",
+    "text": "1.8 Further materials\n\nUK Government Analysis Function learning pathway\nReproducible Analytical Pipelines (RAP) using R. MOOC by Matthew Gregory.",
+    "crumbs": [
+      "RAP",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Further resources</span>"
+    ]
+  },
+  {
+    "objectID": "further-resources-rap.html#other",
+    "href": "further-resources-rap.html#other",
+    "title": "1  Further resources",
+    "section": "1.9 Other",
+    "text": "1.9 Other\n\nUK Government Service Standard. Guidance on open sourcing, user needs and agile project management.\nMentoring a Successful RAP Project\nPatterns and anti-patterns of data analysis reuse",
+    "crumbs": [
+      "RAP",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Further resources</span>"
+    ]
+  },
+  {
+    "objectID": "git.html#useful-commands",
+    "href": "git.html#useful-commands",
+    "title": "Git",
+    "section": "",
+    "text": "Configure git\nset name for commits\n$  git config --global user.name \"Your Name\"\nset email address for commits\n$ git config --global user.email \"you@example.com\"\ncheck email is set correctly\n$ git config --global user.email\nlist all configuration values\n$ git config --list\n\n\nHelp?\nlist all config options\n$ git config --help\n\n\nChange directory and create folder\nset directory\n$ cd C:/Users/partrh/GitHub\ncreate directory\n$ mkdir cheatsheets\nchange directory\n$ cd cheatsheets\nlist contents of directory\n$ ls\n\n\nInitialise existing repo\ntrack directory with git\n$ git init\nremove git from directory\n$ rm -rf .git\ncreate .gitignore file\n$ touch .gitignore\n\n\nStaging\nadd all untracked files to staging area\n$ git add -A\nadd particular file to staging area\n$ git add cheatsheet.md\nremove all files from staging area\n$ git reset\nremove particular file from staging area\n$ git reset cheatsheet.md\n\n\nCommit\ncommit with message\n$ git commit -m \"Meaningful commit message\"\ncompare versions\n$ git diff\n\n\nFork\nlist all remotes\n$ git remote -v\nclone remote repo in current directory\n$ git clone https://github.com/rcatlord/cheatsheets.git .\ncheck remote was cloned successfully\n$ git remote --verbose\n\n\nPull and push\nretrieve history from remote branches\n§ git fetch\npull all branches\n$ git fetch --all\npull latest changes from remote into local repo\n$ git pull\npush local commits to remote repo\n$ git push\n\n\nCreate branches\nshow all branches (local and remote)\n$ git branch -a\ncheck current branch\n$ git branch\ncheck local and remote branches\n$ git branch -a\ncreate new branch called ‘dev’\n$ git branch dev\nswitch to new branch\n$ git checkout dev\npush new branch to GitHub\n$ git push -u origin dev\n\n\nMerge branches\nswitch to main branch\n$ git checkout main\npull changes from remote main branch\n$ git pull origin main\nshow branches that have been merged\n$ git branch --merged\nmerge dev branch\n$ git merge dev\npush to main branch\n$ git push origin main\n\n\nDeleting branches\nshow merged branches\n$ git branch --merged\ndelete dev branch locally\n$ git branch -d dev\ncheck branches on remote\n$ git branch -a\ndelete branch remotely\n$ git push origin --delete dev\n\n\nUndo changes\nrevert modified files\n$ git checkout -f\nremove untracked files\n$ git clean -fd\nrollback to particular commit and push to remote\ngit reset --hard &lt;commit-hash&gt;`\ngit push --force origin &lt;branch-name&gt;\n\n\nMiscellaneous\npull specific file from other branch\ngit checkout dev file.txt\n\n\nTypical workflow\n$ git branch dev # create branch\n$ git checkout dev # switch to dev branch\n$ git status # check current branch\n$ git add -A # add changed files to staging area\n$ git commit -m \"Detailed message\" # commit changed files\n$ git push -origin dev # push dev branch to remote\n$ git checkout main # switch to main branch\n$ git pull origin main # pull latest changes to main\n$ git merge dev # merge dev to main branch\n$ git push origin main # push main branch\n$ git branch -d dev # delete local dev branch\n$ git push origin --delete dev # delete remote dev branch",
+    "crumbs": [
+      "Version control",
+      "Git"
+    ]
+  },
+  {
+    "objectID": "git.html#further-resources",
+    "href": "git.html#further-resources",
+    "title": "Git",
+    "section": "Further resources",
+    "text": "Further resources\n\nHappy Git and GitHub for the useR by Jenny Bryan\nSoftware Carpentry Lessons\nLearn Git Branching\nPull Request Flow with usethis\nOh Shit, Git!?!\nGit good practice: branching",
+    "crumbs": [
+      "Version control",
+      "Git"
     ]
   }
 ]

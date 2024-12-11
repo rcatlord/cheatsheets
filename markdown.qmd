@@ -7,12 +7,12 @@
 | Strikethrough| ~~ ~~ | ~~strikethrough~~ |
 | Highlight | == == | ==highlight== |
 | Blockquotes | >> | >> A quoted paragraph inside a quotation
-Break |
-| Images | ![]() | ![](http://example.com/image.jpg) |
-| Superscript| <sup> </sup> | 100m<sup>2</sup> |
-| Subscript| <sub> </sub> | 1 billion tonnes CO<sub>2</sub>e |
+Break | \</br\> | \</br\> |
+| Images | \!\[\]\(\) | ![](https://rimstar.org/science_electronics_projects/how-to-make-a-zoetrope/zoetrope-animated-gif-horse.gif) |
+| Superscript| \<sup\> \<\/sup\> | 100m<sup>2</sup> |
+| Subscript| \<sub\> \<\/sub\> | 1 billion tonnes CO<sub>2</sub>e |
 | Task list |  - [x] |  - [x] Oat milk |
 | Emoji | :EMOJICODE: | :+1: |
 | Footnote | [^1] | see reference below[^1] |
-| Comments | <!-- --> | <!-- This content will not appear in the rendered Markdown --> |
+| Comments | \<!-- --> | \<!-- This content will not appear in the rendered Markdown --> |
 | Ignore markdown | \*\* | \*italics\* |
