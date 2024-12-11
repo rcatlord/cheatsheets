@@ -12,11 +12,11 @@ book:
   chapters:
     - index.qmd
     
-  - part: "RAP"
+    - part: "RAP"
       chapters:
         - further-resources-rap.qmd
 
-  - part: "Version control"
+    - part: "Version control"
       chapters:
       - git.qmd
     
@@ -33,8 +33,8 @@ book:
         - environments-py.qmd
         - eda-py.qmd
 
-    chapters:
-      - markdown.qmd
+  chapters:
+        - markdown.qmd
 
 bibliography: references.bib
 
