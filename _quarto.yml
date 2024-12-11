@@ -12,6 +12,10 @@ book:
   chapters:
     - index.qmd
     
+  - part: "RAP"
+      chapters:
+        - further-resources-rap.qmd
+    
     - markdown.qmd
     - git.qmd
     
