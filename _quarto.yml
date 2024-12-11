@@ -18,7 +18,7 @@ book:
 
     - part: "Version control"
       chapters:
-      - git.qmd
+        - git.qmd
     
     - part: "R"
       chapters:
@@ -33,7 +33,8 @@ book:
         - environments-py.qmd
         - eda-py.qmd
 
-  chapters:
+    - part: "Markdown"
+      chapters: 
         - markdown.qmd
 
 bibliography: references.bib
