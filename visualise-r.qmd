@@ -8,6 +8,8 @@ execute:
   freeze: auto
 ---
 
+### Basic plot
+
 ```{r}
 #| label: gg-ggplot
 #| eval: true
@@ -40,5 +42,15 @@ ggplot(mpg, aes(displ, hwy)) +
     legend.key.size = unit(0.3, "cm")
     ) +
   guides(colour = guide_legend(nrow = 1))
+```
+
+### Add Okabe-Ito palette
+```{r}
+scale_colour_manual(values = palette.colors(palette = "Okabe-Ito")[-1])
+```
+
+### Add percent signs 
+```{r}
+scale_y_continuous(labels = function(x) paste0(x, "%"))
 ```
 
