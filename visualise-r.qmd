@@ -11,12 +11,6 @@ execute:
 ### Basic plot
 
 ```{r}
-#| label: gg-ggplot
-#| eval: true
-#| fig-align: center
-#| fig-cap: "Scatterplot created using ggplot2 R package"
-#| fig-alt: "Scatterplot created using ggplot2 R package"
-
 library(ggplot2)
 
 ggplot(mpg, aes(displ, hwy)) +
