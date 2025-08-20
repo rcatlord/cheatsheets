@@ -146,6 +146,46 @@ git reset --hard <commit-hash>`
 git push --force origin <branch-name>
 ```
 
+### git log
+
+```sh
+# paging
+git config --global core.pager cat  # stop paging results
+git config --global core.pager less # page results  
+q # to escape pager
+
+# log
+git log # all commits in current branch
+git log --oneline # all commits on single line in current branch
+git log --oneline --all # all commits in all branches
+git log --oneline --stat # additions and deletions
+git branch -avv # show all branches
+
+# formatting
+# https://git-scm.com/docs/pretty-formats
+git log --oneline --all --format=format:"%h" # abbreviated commit hashes
+git log --oneline --all --format=format:"%h %an %s" # abbreviated commit hashes, author, subject
+git shortlog
+
+# limiting
+git log --oneline -3 # last 3 commits
+git log --oneline --author="rcatlord" # by author
+git log --oneline --grep="script" # commits containing string
+git log --oneline --since="1 August 2025" # since date
+git log --oneline -- hello_NBS.py # by file
+git log --follow -p -- hello_NBS.py # history of all commits to file
+git log --oneline --all --summary --merges # all merges
+git log --author="rcatlord" -p -- hello_NBS.py # diff of all changes by author to file
+
+# summaries
+git shortlog -sn --all # count of all commits by user
+git shortlog --summary -- labs # count commits by author by folder
+
+# graph
+git log --graph --oneline
+git log --graph --oneline --all
+```
+
 ### Miscellaneous
 pull specific file from other branch       
 `git checkout dev file.txt`
