@@ -165,6 +165,7 @@ git branch -avv # show all branches
 # https://git-scm.com/docs/pretty-formats
 git log --oneline --all --format=format:"%h" # abbreviated commit hashes
 git log --oneline --all --format=format:"%h %an %s" # abbreviated commit hashes, author, subject
+git log --oneline --pretty=format:"%C(black)%h%Creset -%C(cyan)%d%Creset %s %Cred(%cr) %C(yellow)<%an>%Creset" --abbrev-commit --date=relative
 git shortlog
 
 # limiting
